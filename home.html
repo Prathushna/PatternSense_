@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Sense - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">PATTERN SENSE</div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/discover">About</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="bg-image"></div>
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <h1>Welcome to Pattern Sense</h1>
+        <p>Upload a fabric image to identify its pattern using our AI model.</p>
+
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+            <img src="{{ img_path }}" alt="Uploaded Image" style="width:300px; margin-top:10px;">
+        {% endif %}
+    </div>
+</section>
+
+</body>
+</html>
