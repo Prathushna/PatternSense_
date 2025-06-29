@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result | Pattern Sense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #1f3a52;
+            padding: 20px;
+        }
+
+        .navbar h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .container {
+            margin: 50px auto;
+            background-color: white;
+            width: 60%;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .container img {
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-text {
+            font-size: 28px;
+            margin: 20px 0;
+            color: #1f3a52;
+        }
+
+        .pattern-name {
+            font-weight: bold;
+            color: #d35400;
+            font-size: 32px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background-color: #1f3a52;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #2f4e6e;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>PATTERN SENSE</h1>
+    </div>
+
+    <div class="container">
+        <h2>Image Classification Result</h2>
+        <img src="{{ user_image }}" alt="Uploaded Image">
+        <p class="result-text">
+            The detected pattern is: <span class="pattern-name">{{ prediction }}</span>
+        </p>
+        <a href="/" class="btn">Try with Another Image</a>
+    </div>
+
+</body>
+</html>
